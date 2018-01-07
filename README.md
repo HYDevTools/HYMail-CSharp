@@ -1,6 +1,8 @@
 # HYMail-CSharp
  HY.Mail is a simple tiny high-performance and thread-safe mail package. 
 
+###  Nuget Install
+Install-Package HY.Mail 
 
 ###  Define MyMailSender 
 ```csharp
