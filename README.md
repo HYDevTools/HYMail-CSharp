@@ -2,7 +2,7 @@
  HY.Mail is a simple tiny high-performance and thread-safe mail package. 
 
 
-### Default Define MyMailSender 
+###  Define MyMailSender 
 ```csharp
    public class MyMailSender : MailSender
     {
