@@ -8,7 +8,8 @@
     {
         private const string HOST = "smtp.XX.com";
         private const int PORT = 25;
-        public MyMailSender(string mailAddress, string password,string to="",string cc="",string title="") : base(HOST, PORT, mailAddress, password,to,cc)
+        public MyMailSender(string mailAddress, string password,string to="",string cc="",string title="")
+        : base(HOST, PORT, mailAddress, password,to,cc)
         {
 
         }
@@ -19,7 +20,7 @@
 ### Useage:
 ```csharp
   var Sender = new MyMailSender("XXXXXXXXXX@xx.com", "XXXXXXXXXXXXXXXX");
-            Sender.Send("XXXXXXXXX@xx.com", "测试邮件", "邮件正文");=
+            Sender.Send("XXXXXXXXX@xx.com", "测试邮件", "邮件正文");
 ```
 ### Advance Useage
 #### Define MailSender Factory
