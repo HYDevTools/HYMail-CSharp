@@ -1,5 +1,5 @@
 # HYMail-CSharp
-C#  Mail Sender
+ HY Mail is a simple and tiny mail tool.   
 
 
 ### Default Define QQMailSender 
@@ -16,8 +16,9 @@ C#  Mail Sender
     } 
 ```
     
-# Useage:
+### Useage:
 ```csharp
   var Sender = new QQMailSender("XXXXXXXXXX@qq.com", "XXXXXXXXXXXXXXXX");
             Sender.Send("XXXXXXXXX@qq.com", "测试邮件", "邮件正文");
 ```
+### Advance Useage
