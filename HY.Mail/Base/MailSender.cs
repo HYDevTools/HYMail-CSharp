@@ -30,13 +30,14 @@ namespace HY.Mail.Base
         }
         private SmtpClient GetSmtpClient(string host, int port, string from, string password, bool enableSsl = true)
         {
+            _fromMailAdress = new MailAddress(from);
             var key = $"{host}_{port}_{from}_{password}";
             SmtpClient client = null;
             if (_mailClientDictionary.ContainsKey(key))
                 _mailClientDictionary.TryGetValue(key, out client);
             else
             {
-                _fromMailAdress = new MailAddress(from);
+
                 //设置邮件发送服务器
                 client = new SmtpClient(host, port);
                 //设置发送人的邮箱账号和密码
@@ -78,7 +79,7 @@ namespace HY.Mail.Base
         /// <param name="content">正文</param>
         public void Send(string to, string cc, string title, string content)
         {
-            if (string.IsNullOrEmpty(_to))
+            if (string.IsNullOrEmpty(to))
                 throw new ArgumentException("Mail Recevier Address Cannt Be Null", "to");
             MailMessage message = new MailMessage();
             //设置发件人,发件人需要与设置的邮件发送服务器的邮箱一致
@@ -86,7 +87,14 @@ namespace HY.Mail.Base
             message.To.Add(to);
             //设置抄送人
             if (!string.IsNullOrEmpty(cc))
-                message.CC.Add(cc);
+            {
+                var ccArr = cc.Split(',');
+                foreach (var c in ccArr)
+                {
+                    message.CC.Add(c);
+                }
+
+            }
             message.Subject = title;
             message.Body = content;
             _mailclient.Send(message);
